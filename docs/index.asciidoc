@@ -29,7 +29,7 @@ exclude the email output execution using conditionals.
 ----------------------------------
 output {
   if "shouldmail" in [tags] {
-    email {
+    mail {
       to => 'technical@example.com'
       from => 'monitor@example.com'
       subject => 'Alert - %{title}'

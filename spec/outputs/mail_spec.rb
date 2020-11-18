@@ -3,7 +3,7 @@ require "spec_helper"
 require "rumbster"
 require "message_observers"
 
-describe "outputs/email" do
+describe "outputs/mail" do
 
   let (:port)             { rand(1024..65535) }
   let (:rumbster)         { Rumbster.new(port) }

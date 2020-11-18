@@ -25,7 +25,7 @@ require "logstash/namespace"
 # exclude the email output execution using conditionals.
 class LogStash::Outputs::Email < LogStash::Outputs::Base
 
-  config_name "email"
+  config_name "mail"
 
   # The fully-qualified email address to send the email to.
   #
@@ -73,6 +73,7 @@ class LogStash::Outputs::Email < LogStash::Outputs::Base
 
   # Enables TLS when communicating with the server
   config :use_tls, :validate => :boolean, :default => false
+  config :openssl_verify_mode, :validate => :string, :default => "none"
 
   # Run the mail relay in debug mode
   config :debug, :validate => :boolean, :default => false
@@ -109,6 +110,7 @@ class LogStash::Outputs::Email < LogStash::Outputs::Base
       :password             => @password,
       :authentication       => @authentication,
       :enable_starttls_auto => @use_tls,
+      :openssl_verify_mode  => @openssl_verify_mode,
       :debug                => @debug
     }
 
